@@ -20,6 +20,7 @@ Antes de ejecutar el proyecto, asegúrate de tener instaladas las siguientes dep
 
 - [Python 3.8+](https://www.python.org/downloads/)
 - [pip](https://pip.pypa.io/en/stable/installation/)
+- [Flask](https://flask.palletsprojects.com/en/3.0.x/)
 - [Ollama](https://ollama.com/library/llama3.1)
 - [Langchain](https://python.langchain.com/v0.2/docs/introduction/)
 - Otros requisitos mencionados en `requirements.txt`
@@ -38,7 +39,19 @@ Antes de ejecutar el proyecto, asegúrate de tener instaladas las siguientes dep
    cd rag-chatbot-ists
    ```
 
-3. Instala las dependencias necesarias:
+3. Crea un entorno virtual:
+
+   ```bash
+   python -m venv .venv
+   ```
+
+4. Activa el entorno virtual:
+
+   ```bash
+   source .venv/bin/activate
+   ```
+
+5. Instala las dependencias necesarias:
 
    ```bash
    pip install -r requirements.txt
