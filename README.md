@@ -62,6 +62,80 @@ Asegurate de tener ollama server corriendo.
 - `chroma/`: Directorio donde se almacenan los datos utilizados para la recuperación de información.
 - `pdf_files/`: Contiene los archivos pdf que se suben.
 
+## Endpoints
+
+El proyecto ofrece varios endpoints para interactuar con el chatbot, extraer información de URLs y PDFs, y gestionar la base de datos.
+
+### 1. Preguntar al Chatbot
+
+- **URL**: `/preguntar_chatbot`
+- **Método**: `POST`
+- **Descripción**: Envía una pregunta al chatbot y recibe una respuesta basada en el contexto.
+- **Cuerpo de la Solicitud**:
+  ```json
+  {
+    "question": "¿Cuál es la capital de Francia?"
+  }
+  ```
+- **Respuesta**: La respuesta generada por el chatbot.
+
+### 2. Obtener Información desde una URL
+
+- **URL**: `/obtener_info_from_url`
+- **Método**: `POST`
+- **Descripción**: Extrae y guarda el contenido de un artículo desde una URL proporcionada.
+- **Cuerpo de la Solicitud**:
+  ```json
+  {
+    "url": "https://example.com/article"
+  }
+  ```
+- **Respuesta**:
+  ```json
+  {
+    "url": "https://example.com/article",
+    "messages": ["Message 1", "Message 2"]
+  }
+  ```
+
+### 3. Subir un Archivo PDF
+
+- **URL**: `/upload_pdf`
+- **Método**: `POST`
+- **Descripción**: Sube y guarda archivos PDF.
+- **Cuerpo de la Solicitud**: Un archivo PDF en el campo `file`.
+- **Respuesta**:
+  ```json
+  {
+    "message": "Archivo nombre_archivo.pdf subido correctamente",
+    "file_path": "/ruta/al/archivo/nombre_archivo.pdf"
+  }
+  ```
+
+### 4. Cargar Documentos desde PDFs
+
+- **URL**: `/load_documents`
+- **Método**: `POST`
+- **Descripción**: Carga documentos desde los archivos PDF subidos, los divide en fragmentos y los agrega a la base de datos Chroma.
+- **Respuesta**:
+  ```json
+  {
+    "message": "Documents loaded and added to Chroma"
+  }
+  ```
+
+### 5. Resetear la Base de Datos
+
+- **URL**: `/reset_database`
+- **Método**: `POST`
+- **Descripción**: Resetea la base de datos Chroma.
+- **Respuesta**:
+  ```json
+  {
+    "message": "Database cleared successfully"
+  }
+  ```
+
 ## Contribuciones
 
 Si deseas contribuir al proyecto, por favor sigue los siguientes pasos:
