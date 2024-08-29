@@ -4,3 +4,5 @@
 backup
 chroma
 __pycache__
+pdf_hashes
+pdf_files
